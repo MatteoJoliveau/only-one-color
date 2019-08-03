@@ -12,6 +12,7 @@ var velocity = Vector3()
 var value = 0.0
 var jump_count = 0
 
+onready var timer = get_tree().root.find_node("Timer", true, false)
 onready var camera_rig = find_node("CameraRig")
 onready var camera = camera_rig.camera
 onready var mesh = $MeshInstance
@@ -21,7 +22,7 @@ var current_color
 func _ready():
 	_randomize_color()
 	mesh.set_surface_material(0, material)
-	Game.timer.connect("timeout", self, "_randomize_color")
+	timer.connect("timeout", self, "_randomize_color")
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO
@@ -68,9 +69,9 @@ func _physics_process(delta):
 		camera_rig.global_transform = camera_position
 
 func _randomize_color():
-	var color = Game.get_random_color()
+	var color = Colors.get_random_color()
 	while color == current_color: 
-		color = Game.get_random_color()
+		color = Colors.get_random_color()
 	material.albedo_color = color
 	current_color = color
 	

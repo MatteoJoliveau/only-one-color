@@ -20,12 +20,13 @@ transform = Transform( 0.75, 0, 0, 0, -3.27835e-08, -1, 0, 0.75, -4.37114e-08, 0
 shape = SubResource( 2 )
 
 [node name="CameraRig" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0904, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.334895, 0 )
 script = ExtResource( 2 )
 
 [node name="HorizontalGimbal" type="Spatial" parent="CameraRig"]
 
 [node name="VerticalGimbal" type="Spatial" parent="CameraRig/HorizontalGimbal"]
+transform = Transform( 1, 0, 0, 0, 0.98892, 0.14845, 0, -0.14845, 0.98892, 0, 0, 0 )
 
 [node name="CameraSpringArm" type="SpringArm" parent="CameraRig/HorizontalGimbal/VerticalGimbal"]
 spring_length = 10.0
