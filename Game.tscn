@@ -17,6 +17,7 @@ environment = ExtResource( 2 )
 [node name="CenterContainer" type="CenterContainer" parent="UI"]
 margin_right = 1280.0
 margin_bottom = 720.0
+mouse_filter = 2
 
 [node name="PauseMenu" parent="UI/CenterContainer" instance=ExtResource( 3 )]
 margin_left = 640.0

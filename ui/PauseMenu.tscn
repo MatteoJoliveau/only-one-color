@@ -5,6 +5,7 @@
 [node name="PauseMenu" type="Popup"]
 pause_mode = 2
 rect_pivot_offset = Vector2( 32, 45 )
+mouse_filter = 2
 popup_exclusive = true
 script = ExtResource( 1 )
 
@@ -24,16 +25,19 @@ uppercase = true
 margin_top = 18.0
 margin_right = 64.0
 margin_bottom = 38.0
+mouse_default_cursor_shape = 2
 text = "Resume"
 
 [node name="RestartButton" type="Button" parent="VBoxContainer"]
 margin_top = 42.0
 margin_right = 64.0
 margin_bottom = 62.0
+mouse_default_cursor_shape = 2
 text = "Restart"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 margin_top = 66.0
 margin_right = 64.0
 margin_bottom = 86.0
+mouse_default_cursor_shape = 2
 text = "Quit"
