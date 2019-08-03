@@ -1,16 +1,20 @@
 extends KinematicBody
 class_name Player
 
-const GRAVITY = -60
+var PauseMenu = preload("res://ui/PauseMenu.tscn")
+
+const GRAVITY = -70
 const FALL_GRAVITY = -130
 var actual_gravity = GRAVITY
-const ACCELERATION = 6
-const DECELERATION = 7
+const ACCELERATION = 8
+const DECELERATION = 9
 export(int) var speed = 20
 export(int) var jump_speed = 40
 var velocity = Vector3()
 var value = 0.0
 var jump_count = 0
+
+signal died
 
 onready var timer = get_tree().root.find_node("Timer", true, false)
 onready var camera_rig = find_node("CameraRig")
@@ -67,6 +71,9 @@ func _physics_process(delta):
 		if value > 1:
 			value = 1
 		camera_rig.global_transform = camera_position
+	
+	if (translation.y < -20):
+		emit_signal("died")
 
 func _randomize_color():
 	var color = Colors.get_random_color()
@@ -77,4 +84,3 @@ func _randomize_color():
 	
 func get_color() -> Color:
 	return material.albedo_color
-	

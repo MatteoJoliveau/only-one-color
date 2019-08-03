@@ -1,10 +1,13 @@
 extends Node
 
-
-onready var timer: Timer = $Timer
-onready var pause_menu: Popup = get_tree().root.find_node("PauseMenu", true, false)
+onready var player = $Player
+onready var game_over: Popup = get_tree().root.find_node("GameOver", true, false)
 var worldgen = WorldGen.new()
 
 func _ready():
-	timer.connect("timeout", self, "_on_timer")	
 	worldgen.generate_world(self)
+	player.connect("died", self, "_on_game_over")
+
+func _on_game_over():
+	game_over._pause()
+	game_over.popup_centered()

@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Popup",
+"class": "GameOver",
+"language": "GDScript",
+"path": "res://ui/GameOver.gd"
+}, {
 "base": "StaticBody",
 "class": "Platform",
 "language": "GDScript",
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://WorldGen.gd"
 } ]
 _global_script_class_icons={
+"GameOver": "",
 "Platform": "",
 "Player": "",
 "WorldGen": ""
@@ -39,6 +45,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Colors="*res://Colors.gd"
+BackgroundMusic="*res://BackgroundMusic.tscn"
 
 [display]
 

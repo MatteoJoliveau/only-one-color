@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://default_env.tres" type="Environment" id=2]
 [ext_resource path="res://ui/PauseMenu.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Start.tscn" type="PackedScene" id=4]
-[ext_resource path="res://player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/GameOver.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Start.tscn" type="PackedScene" id=5]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=6]
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 1 )
@@ -27,13 +28,22 @@ margin_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Start" parent="." instance=ExtResource( 4 )]
+[node name="GameOver" parent="UI/CenterContainer" instance=ExtResource( 4 )]
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="Start" parent="." instance=ExtResource( 5 )]
 transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 2, 0 )
+[node name="Player" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 3.83395, 0 )
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 0
 wait_time = 3.0
 autostart = true
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.255712, 0.966753, 0, -0.966753, 0.255712, 0, 12.9188, 0 )
