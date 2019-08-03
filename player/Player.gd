@@ -1,4 +1,5 @@
 extends KinematicBody
+class_name Player
 
 const GRAVITY = -60
 const FALL_GRAVITY = -130
@@ -13,6 +14,14 @@ var jump_count = 0
 
 onready var camera_rig = find_node("CameraRig")
 onready var camera = camera_rig.camera
+onready var mesh = $MeshInstance
+onready var material = SpatialMaterial.new()
+var current_color
+
+func _ready():
+	_randomize_color()
+	mesh.set_surface_material(0, material)
+	Game.timer.connect("timeout", self, "_randomize_color")
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO
@@ -36,6 +45,7 @@ func _physics_process(delta):
 		velocity.y += delta * actual_gravity
 		if is_on_floor():
 			jump_count = 0
+
 	
 	var horizontal_velocity = velocity
 	horizontal_velocity.y = 0
@@ -56,3 +66,14 @@ func _physics_process(delta):
 		if value > 1:
 			value = 1
 		camera_rig.global_transform = camera_position
+
+func _randomize_color():
+	var color = Game.get_random_color()
+	while color == current_color: 
+		color = Game.get_random_color()
+	material.albedo_color = color
+	current_color = color
+	
+func get_color() -> Color:
+	return material.albedo_color
+	
