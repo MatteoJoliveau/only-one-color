@@ -32,7 +32,7 @@ valign = 1
 uppercase = true
 
 [node name="Buttons" type="VBoxContainer" parent="Columns/Menu"]
-margin_top = 199.0
+margin_top = 18.0
 margin_right = 242.0
 margin_bottom = 525.0
 size_flags_vertical = 3
@@ -107,8 +107,14 @@ autowrap = true
 layer = -1
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.2, 0.0627451, 0.780392, 0.545098 )
