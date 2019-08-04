@@ -28,4 +28,5 @@ func _physics_process(delta):
 
 func _unhandled_input(event: InputEvent):
 	if event is InputEventMouseMotion:
+		print(event)
 		mouse_rotation = event.relative

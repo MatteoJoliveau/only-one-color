@@ -59,10 +59,9 @@ func _update_high_score(new_high_score: int):
 func _update_timer():
 	countdown_label.text = str(int(color_timer.time_left))
 
-func _input(event: InputEvent):
+func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("pause_menu") or event.is_action_pressed("ui_cancel"):
 		if get_tree().paused:
 			pause_menu._unpause()
 		else:
 			pause_menu._pause()
-		get_tree().set_input_as_handled()
