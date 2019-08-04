@@ -33,4 +33,6 @@ spring_length = 10.0
 
 [node name="Camera" type="Camera" parent="CameraRig/HorizontalGimbal/VerticalGimbal/CameraSpringArm"]
 transform = Transform( 1, 0, 0, 0, 0.945537, 0.325514, 0, -0.325514, 0.945537, 0, 3.13879, 6.26055 )
+doppler_tracking = 2
 current = true
+fov = 80.0

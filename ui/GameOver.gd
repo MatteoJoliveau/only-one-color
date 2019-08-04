@@ -9,8 +9,8 @@ func _ready():
 	quit_button.connect("pressed", self, "_on_quit_pressed")
 
 func _on_restart_pressed():
-	get_tree().reload_current_scene()
 	_unpause()
+	get_tree().reload_current_scene()
 	
 
 func _on_quit_pressed():

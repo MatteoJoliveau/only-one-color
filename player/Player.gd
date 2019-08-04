@@ -6,24 +6,29 @@ var PauseMenu = preload("res://ui/PauseMenu.tscn")
 const GRAVITY = -70
 const FALL_GRAVITY = -130
 var actual_gravity = GRAVITY
-const ACCELERATION = 8
-const DECELERATION = 9
+const ACCELERATION = 10
+const DECELERATION = 10
 export(int) var speed = 20
 export(int) var jump_speed = 40
 var velocity = Vector3()
 var value = 0.0
 var jump_count = 0
+var score = 0 setget set_score
 
 signal died
+signal changed_color(color)
+signal scored(score)
 
-onready var timer = get_tree().root.find_node("Timer", true, false)
+onready var timer = get_tree().root.find_node("ColorTimer", true, false)
 onready var camera_rig = find_node("CameraRig")
 onready var camera = camera_rig.camera
 onready var mesh = $MeshInstance
 onready var material = SpatialMaterial.new()
-var current_color
+var current_color: Color
+var next_color: Color
 
 func _ready():
+	next_color = Colors.get_random_color()
 	_randomize_color()
 	mesh.set_surface_material(0, material)
 	timer.connect("timeout", self, "_randomize_color")
@@ -76,11 +81,17 @@ func _physics_process(delta):
 		emit_signal("died")
 
 func _randomize_color():
+	material.albedo_color = next_color
+	current_color = next_color
 	var color = Colors.get_random_color()
 	while color == current_color: 
 		color = Colors.get_random_color()
-	material.albedo_color = color
-	current_color = color
+	next_color = color
+	emit_signal("changed_color", next_color)
 	
 func get_color() -> Color:
 	return material.albedo_color
+
+func set_score(new_score: int):
+	score = new_score
+	emit_signal("scored", score)
