@@ -13,7 +13,7 @@ func generate_world(root: Node):
 	deletion_timer.connect("timeout", self, "shift_rows", [root])
 	var start = root.find_node("Start")
 	oldest_row = start.translation
-	oldest_row.x -= x_distance
+	oldest_row.x -= x_distance * 3
 	newest_row = start.translation
 	for _i in range(0, total_rows):
 		newest_row.x += x_distance

@@ -1,8 +1,6 @@
 extends KinematicBody
 class_name Player
 
-var PauseMenu = preload("res://ui/PauseMenu.tscn")
-
 const GRAVITY = -70
 const FALL_GRAVITY = -130
 var actual_gravity = GRAVITY

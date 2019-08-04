@@ -17,9 +17,11 @@ func _on_quit_pressed():
 	get_tree().quit()
 	
 func _pause():
+#	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	get_tree().paused = true
 	popup_centered()
 
 func _unpause():
+#	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().paused = false
 	hide()

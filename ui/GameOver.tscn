@@ -5,7 +5,6 @@
 
 [node name="GameOver" type="Popup"]
 pause_mode = 2
-rect_pivot_offset = Vector2( 32, 45 )
 mouse_filter = 2
 theme = ExtResource( 1 )
 popup_exclusive = true
@@ -14,25 +13,26 @@ script = ExtResource( 2 )
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+mouse_filter = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 64.0
-margin_bottom = 14.0
+margin_right = 80.0
+margin_bottom = 22.0
 text = "GameOver"
 align = 1
 uppercase = true
 
 [node name="RestartButton" type="Button" parent="VBoxContainer"]
-margin_top = 42.0
-margin_right = 64.0
-margin_bottom = 62.0
+margin_top = 26.0
+margin_right = 80.0
+margin_bottom = 48.0
 mouse_default_cursor_shape = 2
 text = "Restart"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
-margin_top = 66.0
-margin_right = 64.0
-margin_bottom = 86.0
+margin_top = 52.0
+margin_right = 80.0
+margin_bottom = 74.0
 mouse_default_cursor_shape = 2
 text = "Quit"
